@@ -15,3 +15,7 @@ dist/
 *.swo
 *~
 .vscode/
+
+# Backend build output and local secrets (shared folder with HRM_Backend branch)
+target/
+application-local.properties
