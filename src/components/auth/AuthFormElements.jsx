@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export function AuthField({ label, ...inputProps }) {
   return (
@@ -10,6 +11,32 @@ export function AuthField({ label, ...inputProps }) {
         {...inputProps}
         className="h-9 rounded-lg border border-border bg-white px-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
       />
+    </div>
+  );
+}
+
+export function AuthPasswordField({ label, ...inputProps }) {
+  const [visible, setVisible] = useState(false);
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label className="text-sm font-medium text-foreground" htmlFor={inputProps.id}>
+        {label}
+      </label>
+      <div className="relative">
+        <input
+          {...inputProps}
+          type={visible ? 'text' : 'password'}
+          className="h-9 w-full rounded-lg border border-border bg-white pl-3 pr-10 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+        />
+        <button
+          type="button"
+          onClick={() => setVisible((v) => !v)}
+          aria-label={visible ? 'Hide password' : 'Show password'}
+          className="absolute inset-y-0 right-0 flex w-9 items-center justify-center bg-transparent p-0 text-black shadow-none hover:translate-y-0 hover:text-black/70 hover:shadow-none"
+        >
+          {visible ? <EyeOff size={16} className="shrink-0" /> : <Eye size={16} className="shrink-0" />}
+        </button>
+      </div>
     </div>
   );
 }

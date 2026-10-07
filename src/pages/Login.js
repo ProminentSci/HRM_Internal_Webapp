@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../services/authService';
 import { superAdminLogin } from '../services/superAdminService';
 import AuthCard from '../components/auth/AuthCard';
-import { AuthField, AuthError, AuthSubmitButton, AuthLinkRow } from '../components/auth/AuthFormElements';
+import { AuthField, AuthPasswordField, AuthError, AuthSubmitButton, AuthLinkRow } from '../components/auth/AuthFormElements';
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -63,9 +63,8 @@ function Login({ onLogin }) {
           required
           placeholder="Enter your email"
         />
-        <AuthField
+        <AuthPasswordField
           label="Password"
-          type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
