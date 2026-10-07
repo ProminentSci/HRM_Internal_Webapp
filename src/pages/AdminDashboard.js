@@ -147,7 +147,7 @@ function AdminDashboard({ userName, onLogout }) {
                   <tbody>
                     {employees.map((employee) => (
                       <tr key={employee.id} className="border-b border-border/60 last:border-0 hover:bg-muted/30">
-                        <td className="px-4 py-3 text-sm text-foreground">{employee.id}</td>
+                        <td className="px-4 py-3 text-sm text-foreground">{employee.employeeId || 'N/A'}</td>
                         <td className="px-4 py-3 text-sm text-foreground">{employee.firstName || 'N/A'}</td>
                         <td className="px-4 py-3 text-sm text-foreground">{employee.lastName || 'N/A'}</td>
                         <td className="px-4 py-3 text-sm text-muted-foreground">{employee.email}</td>
